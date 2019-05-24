@@ -17,6 +17,14 @@
             {name:'Julie', phone:'555-8765'},
             {name:'Juliette', phone:'555-5678'}
         ];
+
+        $scope.number = 1234.56789;
+
+        $scope.name = 'Gino Luiggi';
+
+        $scope.reverse = false;
+
+        $scope.numbers = [1,2,3,4,5,6,7,8,9];
     }])
     .directive('appNavbar', [function () {
         return {

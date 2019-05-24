@@ -27,7 +27,7 @@
         <table class="table table-bordered table-stripped">
             <thead>
                 <tr>
-                    <th class="text-center">Entrada</th>
+                    <th class="text-center" style="width: 35%;">Entrada</th>
                     <th class="text-center">Filter</th>
                     <th class="text-center">Resultado</th>
                 </tr>
@@ -79,8 +79,67 @@
                         </ul>
                     </td>
                 </tr>
+                <tr>
+                    <td class="text-center">{{ number }}</td>
+                    <td class="text-center">number</td>
+                    <td class="text-center">{{ number | number }}</td>
+                </tr>
+                <tr>
+                    <td class="text-center">{{ number }}</td>
+                    <td class="text-center">number: 0</td>
+                    <td class="text-center">{{ number | number: 0 }}</td>
+                </tr>
+                <tr>
+                    <td class="text-center">{{ name }}</td>
+                    <td class="text-center">uppercase</td>
+                    <td class="text-center">{{ name | uppercase}}</td>
+                </tr>
+                <tr>
+                    <td class="text-center">{{ name }}</td>
+                    <td class="text-center">lowercase</td>
+                    <td class="text-center">{{ name | lowercase}}</td>
+                </tr>
+                <tr>
+                    <td class="text-center">{{ numbers }}</td>
+                    <td class="text-center">limitTo: 3</td>
+                    <td class="text-center">{{ numbers | limitTo: 3}}</td>
+                </tr>
+                <tr>
+                    <td class="text-center">{{ numbers }}</td>
+                    <td class="text-center">limitTo: 3: 1</td>
+                    <td class="text-center">{{ numbers | limitTo: 3: 1}}</td>
+                </tr>
             </tbody>
         </table>
+
+        <h4>Filter: json</h4>
+        <hr />
+        <pre>{{ friends | json }}</pre>
+
+        <br /><br />
+
+        <h4>Filter: orderBy</h4>
+        <hr />
+
+        <div class="form-group">    
+            <button type="button"
+                    class="btn btn-primary"
+                    ng-click="reverse = false">
+                Sort ASC
+            </button>
+            &nbsp;&nbsp;
+            <button type="button"
+                    class="btn btn-primary"
+                    ng-click="reverse = true">
+                Sort DESC
+            </button>
+        </div>
+
+        <ul>
+            <li ng-repeat="friend in friends | orderBy: 'name': reverse">
+                {{ friend.name }}
+            </li>
+        </ul>
     </div>
 
     <app-footer></app-footer>

@@ -25,7 +25,27 @@
         $scope.reverse = false;
 
         $scope.numbers = [1,2,3,4,5,6,7,8,9];
+
+        $scope.greeting = 'Hello friend';
     }])
+    .filter('reverse', function() {
+        return function(input, uppercase) {
+            input = input || '';
+            
+            var out = '';
+            
+            for (var i = 0; i < input.length; i++) {
+                out = input.charAt(i) + out;
+            }
+            
+            // conditional based on optional argument
+            if (uppercase) {
+                out = out.toUpperCase();
+            }
+
+            return out;
+        };
+    })
     .directive('appNavbar', [function () {
         return {
             restrict: 'E'

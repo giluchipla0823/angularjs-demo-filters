@@ -140,6 +140,12 @@
                 {{ friend.name }}
             </li>
         </ul>
+
+        <br /><br />
+        <h4>Custom filter: reverse</h4>
+        <hr />
+        <p>{{ greeting | reverse }}</p>
+        <p>{{ greeting | reverse: true }}</p>
     </div>
 
     <app-footer></app-footer>
